@@ -80,7 +80,7 @@ Each domain is organized under `domain/{domainName}/` package:
 
 ## API Shell Script
 
-When creating a new API, create a shell script in `src/main/resources/h?ttp/`:
+When creating a new API, create a shell script in `src/main/resources/http/`:
 
 - File naming: lowercase with resource name (e.g., `post.sh`, `follow.sh`)
 - Include curl commands for all endpoints (POST, GET, PUT, DELETE)
