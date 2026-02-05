@@ -22,7 +22,7 @@ public class UserController {
 
   private final UserService userService;
 
-  @PostMapping("/api/users")
+  @PostMapping("/api/v1/users")
   public ResponseEntity<UserResponse> register(@RequestBody UserRegisterRequest request) {
     User user =
         userService.register(
@@ -30,26 +30,26 @@ public class UserController {
     return ResponseEntity.status(HttpStatus.CREATED).body(UserResponse.from(user));
   }
 
-  @GetMapping("/api/users/{id}")
+  @GetMapping("/api/v1/users/{id}")
   public ResponseEntity<UserResponse> findById(@PathVariable Long id) {
     User user = userService.findById(id);
     return ResponseEntity.ok(UserResponse.from(user));
   }
 
-  @PutMapping("/api/users/{id}")
+  @PutMapping("/api/v1/users/{id}")
   public ResponseEntity<UserResponse> update(
       @PathVariable Long id, @RequestBody UserUpdateRequest request) {
     User user = userService.update(id, request.nickname(), request.password());
     return ResponseEntity.ok(UserResponse.from(user));
   }
 
-  @GetMapping("/api/users/username/{username}")
+  @GetMapping("/api/v1/users/username/{username}")
   public ResponseEntity<UserResponse> findByUsername(@PathVariable String username) {
     User user = userService.findByUsername(username);
     return ResponseEntity.ok(UserResponse.from(user));
   }
 
-  @GetMapping("/api/users")
+  @GetMapping("/api/v1/users")
   public ResponseEntity<List<UserResponse>> findAll() {
     List<UserResponse> users = userService.findAll().stream().map(UserResponse::from).toList();
     return ResponseEntity.ok(users);
