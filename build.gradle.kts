@@ -23,7 +23,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-h2console")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-webmvc")
-    implementation("org.springframework.security:spring-security-crypto")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("com.fasterxml.jackson.core:jackson-databind")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
     runtimeOnly("com.h2database:h2")
@@ -41,7 +42,6 @@ spotless {
     java {
         target("src/**/*.java")
         removeUnusedImports()
-        googleJavaFormat()
         trimTrailingWhitespace()
         endWithNewline()
     }
